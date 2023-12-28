@@ -17,6 +17,8 @@ namespace CursoWindowsForms
 {
     public partial class Frm_CadastroCliente_UC : UserControl
     {
+        #region Acoes iniciais do Formulario de Cadastro de Cliente
+        //Montagem do Formulário
         public Frm_CadastroCliente_UC()
         {
             InitializeComponent();
@@ -85,7 +87,7 @@ namespace CursoWindowsForms
             LimparFormulario();
 
         }
-
+        //Limpando dados do Formulário
         private void LimparFormulario()
         {
             Txt_Bairro.Text = "";
@@ -106,7 +108,7 @@ namespace CursoWindowsForms
             Rdb_Masculino.Checked = true;
 
         }
-
+        //Relacionando o CheckBox do Pai Desconhecido com o Campo Nome do Pai
         private void Chk_TemPai_CheckedChanged(object sender, EventArgs e)
         {
             if (Chk_TemPai.Checked)
@@ -118,7 +120,7 @@ namespace CursoWindowsForms
                 Txt_NomePai.Enabled = true; 
             }
         }
-
+        #endregion
         private void novoToolStripButton_Click(object sender, EventArgs e)
         {
             try
@@ -247,7 +249,7 @@ namespace CursoWindowsForms
             //}
             #endregion
         }
-
+        #region Metodos auxiliares para o Formulario de Cadastro de Cliente
         private void LimpartoolStripButton_Click(object sender, EventArgs e)
         {
             LimparFormulario();
@@ -405,65 +407,60 @@ namespace CursoWindowsForms
 
         private void Btn_Busca_Click(object sender, EventArgs e)
         {
-
-            try
-            {
-                Cliente C = new Cliente();
-                //var ListaBusca = C.BuscarFicharioTodos("C:\\WindowsForms\\Curso\\CursoWindowsForms\\Fichario");
-                //var ListaBusca = C.BuscarFicharioDBTodosDB("Cliente");
-                //var ListaBusca = C.BuscarFicharioDBTodosSQL("Cliente");
-                //var ListaBusca = C.BuscarFicharioDBTodosSQLREL();
-                //Frm_Busca FForm = new Frm_Busca(ListaBusca);
-                //FForm.ShowDialog();
-                //if (FForm.DialogResult == DialogResult.OK)
-                //{
-                //    var idSelect = FForm.idSelect;
-                //    //C = C.BuscarFichario(idSelect, "C:\\WindowsForms\\Curso\\CursoWindowsForms\\Fichario");
-                //    //C = C.BuscarFicharioDB(idSelect, "Cliente");
-                //    //C = C.BuscarFicharioSQL(idSelect, "Cliente");
-                //    C = C.BuscarFicharioSQLREL(idSelect);
-                //    if (C == null)
-                //    {
-                //        MessageBox.Show("Identificador não encontrado.", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    }
-                //    else
-                //    {
-                //        EscreveFormulario(C);
-                //    }
-                //}
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show(Ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-
+            #region Versao Inicial de Read-Solucao SQL
+            //try
+            //{
+            //    Cliente C = new Cliente();
+            //    //var ListaBusca = C.BuscarFicharioDBTodosSQLREL();
+            //    //Frm_Busca FForm = new Frm_Busca(ListaBusca);
+            //    //FForm.ShowDialog();
+            //    //if (FForm.DialogResult == DialogResult.OK)
+            //    //{
+            //    //    var idSelect = FForm.idSelect;
+            //    //    C = C.BuscarFicharioSQLREL(idSelect);
+            //    //    if (C == null)
+            //    //    {
+            //    //        MessageBox.Show("Identificador não encontrado.", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    //    }
+            //    //    else
+            //    //    {
+            //    //        EscreveFormulario(C);
+            //    //    }
+            //    //}
+            //}
+            //catch (Exception Ex)
+            //{
+            //    MessageBox.Show(Ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+            #endregion
         }
         private void AtualizaGrid()
         {
-
-            try
-            {
-                Cliente C = new Cliente();
-                //var ListaBusca = C.BuscarFicharioDBTodosSQLREL();
-                //Dg_Clientes.Rows.Clear();
-                //for (int i = 0; i <= ListaBusca.Count-1; i++)
-                //{
-                //    DataGridViewRow row = new DataGridViewRow();
-                //    row.CreateCells(Dg_Clientes);
-                //    row.Cells[0].Value = ListaBusca[i][0].ToString();
-                //    row.Cells[1].Value = ListaBusca[i][1].ToString();
-                //    Dg_Clientes.Rows.Add(row);
-                //}
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show(Ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            #region Versao inicial de Read (lista)-Solucao SQL
+            //try
+            //{
+            //    Cliente C = new Cliente();
+            //    //var ListaBusca = C.BuscarFicharioDBTodosSQLREL();
+            //    //Dg_Clientes.Rows.Clear();
+            //    //for (int i = 0; i <= ListaBusca.Count-1; i++)
+            //    //{
+            //    //    DataGridViewRow row = new DataGridViewRow();
+            //    //    row.CreateCells(Dg_Clientes);
+            //    //    row.Cells[0].Value = ListaBusca[i][0].ToString();
+            //    //    row.Cells[1].Value = ListaBusca[i][1].ToString();
+            //    //    Dg_Clientes.Rows.Add(row);
+            //    //}
+            //}
+            //catch (Exception Ex)
+            //{
+            //    MessageBox.Show(Ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+            #endregion
 
         }
         private void Dg_Clientes_DoubleClick(object sender, EventArgs e)
         {
+            #region Versao inicial de Read(Transferencia da Tabela via Click)
             //try
             //{
             //    DataGridViewRow row = new DataGridViewRow();
@@ -487,7 +484,9 @@ namespace CursoWindowsForms
 
             //    MessageBox.Show(ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //}
+            #endregion
         }
+        #endregion
     }
 
 }
