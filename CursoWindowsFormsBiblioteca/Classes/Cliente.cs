@@ -108,7 +108,10 @@ namespace CursoWindowsFormsBiblioteca.Classes
                     throw new Exception("CPF inválido.");
                 }
             }
-
+        public override string ToString()
+        {
+            return $"Cliente ({Id}) - {Nome} - CPF:{Cpf}";
+        }
 
     }
 
